@@ -1,16 +1,8 @@
-@font-face {
-  font-family: "Bosch Office Sans";
-  src: url('../../assets/fonts/BoschOfficeSans-Regular-v3_003.ttf') format('truetype')
-}
-@font-face {
-  font-family: "Bosch Office Sans Bold";
-  src: url("../../assets/fonts/BoschOfficeSans-Bold-v3_003.ttf");
-}
-
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body,
@@ -34,7 +26,7 @@ html {
 }
 
 .slogan {
-  font-family: "Bosch Office Sans";
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 5.5pt;
   letter-spacing: 0.15em;
   margin-left: 19.8mm;
@@ -74,7 +66,7 @@ html {
 
 .nome,
 .nome-completo {
-  font-family: "Bosch Office Sans Bold";
+  font-family: Arial, Helvetica, sans-serif;
   border: 1px solid;
   margin-top: 1mm;
   width: 51mm;

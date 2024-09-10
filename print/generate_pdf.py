@@ -10,7 +10,7 @@ def generate_pdf(selected_collaborators):
     merger = PdfMerger()
 
     for collaborator in selected_collaborators:
-        logo_bosch = find("assets/badge_images/logo_bosch.png")
+        logo_bp = find("assets/badge_images/logo_bp.svg")
         css  = find("style/badge_css/cracha.css")
         temp_photo_path = generate_temp_photo(collaborator.photo)
         
@@ -20,7 +20,7 @@ def generate_pdf(selected_collaborators):
             "css": css,
             "collaborator": collaborator,
             "photo_path": temp_photo_path,
-            "logo_bosch": logo_bosch,
+            "logo_bp": logo_bp,
             **name_info
         }
         
