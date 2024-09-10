@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/images/print.svg' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+    <title>Badge Printer</title>
+  </head>
+  <body>
+    <!-- Mensagem de erro ou sucesso -->
+    <div class="message" id="statusMessage">
+      <p class="message__text"></p>
+    </div>
+    <div class="wrapper">
+      <div class="content">
+        <div class="container__database">
+          <div class="container__search-select">
+            <div class="container__search">
+              <input type="search" placeholder="Search" id="searchInput" title="Pesquisar" />
+            </div>
+
+            <div class="container__select-all">
+              <button id="selectAllButton" class="print-btn" title="Selecionar Todos">Selecionar Todos</button>
+            </div>
+
+            <div class="container__print">
+              <button id="printSelectedBtn" class="print-btn" title="Imprimir">Imprimir Selecionados</button>
+            </div>
+          </div>
+
+          <div class="container__table">
+          <div class="container__table" id="table1">
+            <form id="printForm" method="POST" action="{% url "print:print_selected" %}">
+              {% csrf_token %}
+              <table class="table">
+                <thead>
+                  <tr class="table__row">
+                    <th class="table__head" scope="col" style="width: 12.5%;">Selecionar</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">EDV</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">Nome</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">Nome de Tratamento</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">Localização</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">Horário</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">Foto</th>
+                    <th class="table__head" scope="col" style="width: 12.5%;">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for collaborator in collaborators %}
+                    <tr class="table__row">
+                      <td class="table__data">
+                        <label class="custom-checkbox">
+                          <input type="checkbox" class="ticketCheckbox" name="selected_badges" value="{{ collaborator.id }}" />
+                          <span class="checkmark" title="Selecionar"></span>
+                        </label>
+                      </td>
+                      <td class="table__data">{{ collaborator.edv }}</td>
+                      <td class="table__data">{{ collaborator.name }}</td>
+                      <td class="table__data">{{ collaborator.treatment_name }}</td>
+                      <td class="table__data">{{ collaborator.city }}</td>
+                      <td class="table__data">{{ collaborator.created_at|date:'d/m/Y H:i:s' }}</td>
+                      <td class="table__data">
+                        <img class="collaborator__image" src="{% url "print:get_collaborator_photo" edv=collaborator.edv %}" />
+                      </td>
+                      <td class="table__data">
+                        <button type="button" class="edit-btn" title="Editar" data-collaborator-id="{{ collaborator.id }}">Editar</button>
+                        <button type="button" id="deleteButton" class="delete-btn" title="Deletar" data-collaborator-id="{{ collaborator.id }}">Deletar</button>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  <tr class="no__results" style="display: none;">
+                    <td colspan="8" style="text-align: center; color: red;">No results found</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Exclusão -->
+    <form id="deleteCollaboratorForm" method="POST" action="{% url 'print:delete_collaborator' %}">
+      {% csrf_token %}
+      <input id="deleteCollaboratorID" name="collaborator_id" type="hidden" value="">
+      <div id="confirmDeleteModal" class="modal">
+        <div class="modal__content">
+          <div class="line"></div>
+          <h2 class="modal__title">Deletar Colaborador</h2>
+          <p class="modal__message">Você tem certeza de que deseja deletar este colaborador?</p>
+          <button class="edit-btn" type="submit">Confirmar</button>
+          <button id="cancelDeleteBtn" class="delete-btn" type="button">Cancelar</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Modal de Edição -->
+    <div id="editCollaboratorModal" class="modal">
+      <div class="modal__content">
+        <div class="line"></div>
+        <h2 class="modal__title">Editar Colaborador</h2>
+        <form id="editCollaboratorForm" method="post" action="{% url "print:edit_collaborator"%}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <!-- Campo oculto para armazenar o ID do colaborador -->
+          <input type="hidden" id="editCollaboratorId" name="collaborator_id" />
+
+          <label for="editTreatmentName">Nome de Tratamento:</label>
+          <input type="text" id="editTreatmentName" name="treatment_name"/>
+
+          <label for="editName">Nome:</label>
+          <input type="text" id="editName" name="name" required />
+
+          <label for="edv">EDV:</label>
+          <input class="no-arrows" type="number" id="editEdv" name="edv" required />
+
+          <label for="city">Cidade:</label>
+          <select name="city" id="editCity" placeholder="Cidade" required>
+            <option value="JvL">Joinville</option>
+            <option value="CtB">Curitiba</option>
+            <option value="CaP">Campinas</option>
+          </select>
+
+          <label for="photo">Imagem:</label>
+          <input accept=".jpg, .jpeg, .png" name="photo" type="file" id="photo" aria-label="Selecione uma imagem" />
+
+          <button type="submit" id="saveButton" class="edit-btn">Salvar</button>
+          <button type="button" id="cancelEditBtn" class="delete-btn">Cancelar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/print/print.js' %}" type="module"></script>
+    <script src="{% static 'js/register/register.js' %}" type="module"></script>
+    <script src="{% static 'js/utils/verifyLocalStorage.js' %}" type="module"></script>
+    <script src="{% static 'js/print/edit.js' %}" type="module"></script>
+    <script src="{% static 'js/print/delete.js' %}" type="module"></script>
+    <script type="module" src="{% static 'js/print/print_selected.js' %}"></script>
+    <script type="module" src="{% static 'js/login/generic_functions.js' %}"></script>
+  </body>
+</html>

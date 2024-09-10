@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+  </head>
+  <body class="body__register">
+    <div class="message" id="statusMessage">
+      <p class="message__text"></p>
+    </div>
+
+    <form id="registerForm" action="{% url 'register:register' %}" enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <div class="container__register">
+        <div class="container__register__input">
+          <label for="treatmentName">Nome de Tratamento:</label>
+          <input name="treatment_name" type="text" id="treatmentName" placeholder="Nome de Tratamento" />
+          <label for="fullName">Nome Completo:</label>
+          <input name="name" type="text" id="fullName" placeholder="Nome Completo" required />
+          <label for="edv">ID:</label>
+          <input class="no-arrows" name="edv" type="number" id="edv" placeholder="ID" required />
+          <label for="city">Cidade:</label>
+          <select name="city" id="city" placeholder="Cidade" required>
+            <option value="JvL">Joinville</option>
+            <option value="CtB">Curitiba</option>
+            <option value="CaP">Campinas</option>
+          </select>
+          <label for="photo">Imagem:</label>
+          <input accept=".jpg, .jpeg, .png" name="photo" type="file" id="photo" aria-label="Selecione uma imagem" required />
+          <button type="submit" title="Registrar" id="registerButton">Registrar</button>
+        </div>
+      </div>
+    </form>
+  </body>
+  <script type="module" src="{% static 'js/register/register.js' %}"></script>
+  <script type="module" src="{% static 'js/utils/verifyLocalStorage.js' %}"></script>
+  <script type="module" src="{% static 'js/register/registerForm.js' %}"></script>
+  <script type="module" src="{% static 'js/login/generic_functions.js' %}"></script>
+</html>

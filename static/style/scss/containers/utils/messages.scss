@@ -1,0 +1,42 @@
+@use "../../config/variables" as *;
+@import "../../config/mixins";
+
+// Bloco principal para mensagens
+.message {
+    &__container {
+        display: none; 
+        position: fixed; 
+        top: 60px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        padding: 10px;
+        z-index: 1000; 
+        width: auto; 
+        text-align: center; 
+        font-weight: bold;
+        color: #FFF; 
+    }
+
+    &__text {
+        margin: 0; 
+    }
+
+    &--success {
+        @extend .message__container; // Herda estilos do container principal
+        background-color: $green; 
+        border: 1px solid darken($green, 10%);
+    }
+
+    &--error {
+        @extend .message__container; // Herda estilos do container principal
+        background-color: $red; 
+        border: 1px solid darken($red, 10%);
+    }
+
+    // Modificador para exibir a mensagem
+    &--show {
+        display: block; 
+        animation: fadeIn 0.5s; 
+    }
+
+}

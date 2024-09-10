@@ -1,0 +1,157 @@
+@use "./variables.scss" as *;
+@import "../config/fonts.scss";
+@import "../config/mixins.scss";
+
+//* Reset padrão
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bosch Office Sans";
+    overflow-x: hidden;
+}
+
+//* Removendo o comportamento padrão do edge ao inserir ícone de olho nos inputs do tipo password
+input[type="password"]::-ms-reveal {
+    display: none !important;
+}
+
+//* Remover arrows de inputs type number 
+.no-arrows {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+//* Remover as setas em navegadores baseados em WebKit (Chrome, Safari, Edge) */
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+// Mensagem para resultados não encontrados
+.no__results {
+    padding-top: 10px;
+    color: red;
+    text-align: center;
+
+    td {
+        padding-top: 10px;
+        color: red;
+        text-align: center;
+    }
+}
+
+//* Estilos para botões de edição e deleção
+.edit-btn {
+    @include printButton($blue, $white);
+}
+
+.print-btn {
+    margin-left: 20px;
+    @include printButton($blue, $white);
+}
+
+.delete-btn {
+    @include printButton($red, $white);
+}
+
+//* Estilos para o checkbox customizado
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    a {
+        cursor: pointer;
+    }
+
+    //* Input do checkbox
+    input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    //* Marcação do checkbox
+    .checkmark {
+        padding: 5px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #ccc;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+
+    //* Estilos quando o checkbox está marcado
+    input:checked~.checkmark {
+        background-color: $blue;
+
+        &:after {
+            display: block;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+//* Estilização do input file para fotos 
+input[type="file"] {
+    @include inputStyle;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    // Ocultar o texto padrão
+    &::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    // Estilização personalizada do botão
+    &::before {
+        content: "Escolha uma imagem";
+        display: inline-block;
+        background: $blue;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &.valid {
+        border: 2px solid $green;
+        background-color: #e8f5e9;
+    }
+
+    &.invalid {
+        border: 2px solid $red;
+    }
+}
+
+button {
+    @include buttonStyle;
+}

@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Bosch Office Sans";
+  /* src: url('file:///C:/Users/joaoa/Documents/GitHub/ProjetoCracha/static/css/source/fonts/BoschOfficeSans-Regular-v3_003.ttf') format('truetype'); */
+  src: url('../fonts/BoschOfficeSans-Regular-v3_003.ttf') format('truetype')
+}
+@font-face {
+  font-family: "Bosch Office Sans Bold";
+  src: url("../fonts/BoschOfficeSans-Bold-v3_003.ttf");
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-pack: center; /* Centraliza os itens horizontalmente */
+  -webkit-box-align: center; /* Centraliza os itens verticalmente */
+}
+
+.cracha {
+  width: 54mm;
+  height: 85.6mm;
+}
+
+.logo img {
+  margin-top: 5mm;
+  margin-left: 2mm;
+  width: 48mm;
+}
+
+.slogan {
+  font-family: "Bosch Office Sans";
+  font-size: 5.5pt;
+  letter-spacing: 0.15em;
+  margin-left: 19.8mm;
+  margin-top: -7mm;
+}
+
+.campo-foto {
+  display: -webkit-box; /* Define um contêiner flexível usando o modelo de caixa WebKit */
+  -webkit-box-pack: center; /* Centraliza os itens horizontalmente */
+  -webkit-box-align: center; /* Centraliza os itens verticalmente */
+  margin-top: 3.5mm;
+  width: 100%; /* Define a largura do campo de foto */
+  height: 32mm; /* Define a altura do campo de foto */
+}
+
+.foto {
+  text-align: center; /* Centraliza a imagem horizontalmente */
+}
+
+.foto img {
+  vertical-align: middle; /* Centraliza a imagem verticalmente */
+  max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+  max-height: 32.5mm; /* Garante que a imagem não ultrapasse o contêiner */
+}
+
+.footer {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+}
+
+.info {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.nome,
+.nome-completo {
+  font-family: "Bosch Office Sans Bold";
+  border: 1px solid;
+  margin-top: 1mm;
+  width: 51mm;
+  height: 8mm;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.nome-completo {
+  margin-top: 5px;
+  font-size: 8pt;
+}
+
+.city-edv {
+  display: -webkit-box; /* Use o modelo de layout flexbox do WebKit */
+  -webkit-box-align: center;
+}
+.cidade,
+.edv {
+  display: -webkit-box; /* Use o modelo de layout flexbox do WebKit */
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  border: 1px solid;
+  margin-top: 2mm;
+  width: 24.8mm;
+  height: 8mm;
+  margin: 0 3px;
+}
+.cidade {
+  margin-left: 1mm;
+}
+.edv {
+  margin-right: 1mm;
+  font-size: 9pt;
+}
+
+.nome,
+.nome-completo,
+.cidade,
+.edv {
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.matricula {
+  font-weight: bold;
+  font-size: 4.8pt;
+  position: relative;
+  top: -9.5mm;
+  left: 3.5mm;
+}
+
+.city-edv,
+.matricula {
+    margin-top:5px ;
+}

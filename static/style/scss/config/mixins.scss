@@ -1,0 +1,57 @@
+@use "../config/variables" as *;
+
+@mixin boxShadow($shadow: 0 4px 20px rgba(0, 0, 0, 0.3)) {
+    box-shadow: $shadow;
+}
+
+@mixin inputStyle {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+@mixin buttonStyle($bg-color: $blue, $text-color: black) {
+    padding: 10px;
+    border: none;
+    background-color: $bg-color;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $blueHover;
+    }
+}
+
+@mixin flexCenter($direction, $justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
+@mixin flex($direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+// Mixins para botões na tela de admin
+@mixin printButton($bg-color, $text-color) {
+    padding: 5px;
+    color: $text-color;
+    border: none;
+    cursor: pointer;
+    background-color: $bg-color;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+

@@ -1,0 +1,9 @@
+Django
+python-dotenv
+pandas
+openpyxl
+opencv-python
+pdfkit
+pillow
+pypdf2
+rembg

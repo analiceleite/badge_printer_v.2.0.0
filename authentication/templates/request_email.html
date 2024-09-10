@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/images/print.svg' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+    <title>Badge Printer</title>
+  </head>
+  <body class="login__body">
+    <div class="container__login">
+      <img src="{% static 'assets/images/thin_line.png' %}" alt="Supergraphic" class="container__login__line" />
+      <img class="container__login__logo" src="{% static 'assets/images/logo.svg' %}" alt="Logo" />
+      <form id="submitRecoverEDV" method="post" action="{% url 'authentication:request_email' %}">
+        {% csrf_token %}
+        <div class="container__input">
+          <label for="user">Insira seu ID para recuperar a sua senha:</label>
+          <input class="no-arrows" id="edv" name="edv" placeholder="ID" type="number" />
+          {% if form.edv.errors %}
+            {% for error in form.edv.errors %}
+              <p class="form_error">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="{% static 'js/login/generic_functions.js' %}"></script>
+</html>

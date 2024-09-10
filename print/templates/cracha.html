@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crachá</title>
+    <link rel="stylesheet" href="{{css}}" />
+  </head>
+  <body>
+    <div class="cracha">
+      <div class="header">
+        <div class="logo">
+          <img src=" {{logo_bosch}} ">
+        </div>
+        <div class="slogan">Tecnologia para a vida</div>
+      </div>
+      <div class="campo-foto">
+        <div class="foto">
+          <img src="{{photo_path}}">
+        </div>
+      </div>
+      <div class="footer">
+        <div class="info">
+          <div class="nome">{{ display_first_name }}</div>
+          {% if len_name >= 35 %}
+          <div class="nome-completo" style="font-size: 5pt;">{{ collaborator.name }}</div>
+          {% elif len_name > 30 %}
+            <div class="nome-completo" style="font-size: 6pt;">{{ collaborator.name }}</div>
+          {% elif len_name > 25 %}
+            <div class="nome-completo" style="font-size: 7pt;">{{ collaborator.name }}</div>
+          {% else %}
+            <div class="nome-completo">{{ display_complete_name }}</div>
+          {% endif %}
+        </div>
+        <div class="city-edv">
+          <div class="cidade">{{ collaborator.city }}</div>
+          <div class="edv">{{ collaborator.edv }}</div>
+        </div>
+        <div class="matricula" style="margin-top: 6px;">EDV</div>
+      </div>
+    </div>
+  </body>
+</html>

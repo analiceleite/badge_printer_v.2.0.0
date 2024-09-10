@@ -1,0 +1,67 @@
+@use "../../../config/variables.scss" as *;
+@import "../../../config/mixins.scss";
+
+.main__container__error {
+  @include flexCenter(column, center);
+
+  .text__colored {
+    color: $red;
+    font-family: "Bosch Sans Bold";
+  }
+
+  .container {
+    @include flexCenter(column, center);
+    height: 40vw;
+
+    &__text {
+      @include flexCenter(column, center);
+      &__subtitle {
+        font-family: "Bosch Sans Bold";
+        color: $dark-gray;
+      }
+      &__error {
+        margin-top: 5vh;
+        font-size: 120px;
+        color: $red;
+      }
+    }
+  }
+}
+
+// Media queries for responsiveness
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .main__container__error {
+    background-position: 50% 50%;
+    .container {
+      height: 50vw;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .main__container__error {
+    background-position: 50% 50%;
+    .container {
+      height: 60vw;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main__container__error {
+    background-position: 50% 50%;
+    .container {
+      height: 60vw;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .main__container__error {
+    background-position: 50% 50%;
+    .container {
+      height: 100vw;
+    }
+  }
+}

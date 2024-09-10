@@ -1,0 +1,115 @@
+@use "../../config/variables" as *;
+@import "../../config/mixins";
+
+// Estilos para o texto de administrador colorido
+.text__colored__admin {
+    color: $blue;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+// Estilos para o container de banco de dados
+.container__database {
+    padding: 0 20px;
+
+    // Container de busca e seletor
+    .container__search-select {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        .container__search {
+            margin-left: auto;
+
+            input {
+                width: 300px;
+                padding: 5px;
+                margin-top: 5px;
+                border: 1px solid #ddd;
+                outline: none;
+            }
+        }
+
+        .container__select-all {
+            // Custom checkbox alinhado corretamente
+            .custom-checkbox {
+                display: flex;
+                align-items: center;
+
+                .checkmark {
+                    background-color: #ccc;
+                    position: relative;
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                        left: 6px;
+                        top: 2px;
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                input:checked~.checkmark {
+                    background-color: $blue;
+
+                    &:after {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    // Estilos da tabela
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+
+        &__head,
+        &__data {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        &__head {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        &__data {
+            input {
+                padding: 5px;
+                text-align: center;
+                border: none;
+                background-color: $light-blue;
+
+                &[readonly] {
+                    background-color: #f0f0f0;
+                    outline: none;
+                }
+            }
+
+            .checkmark {
+                cursor: pointer;
+
+                &.editable {
+                    cursor: pointer;
+                }
+            }
+
+            .collaborator__image {
+                width: 25px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

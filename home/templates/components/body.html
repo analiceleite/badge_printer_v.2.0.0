@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}">
+</head>
+<body>
+    <div class="container__home">
+        <div class="container__home__welcome">
+            <h1>Bem vindo ao Badge Printer</h1>
+            <p>O software Badge Printer foi projetado e desenvolvido para simplificar e agilizar a criação de crachás, eliminando tarefas manuais e repetitivas relacionadas à produção de crachás, tornando o processo mais eficiente e menos suscetível a erros.</p>
+            <a href="{% static 'docs/doc_eng.pdf' %}">Documentação Técnica</a>
+            <a href="/support" data-url="/support" data-url="/support">Suporte</a>
+        </div>
+        <div class="container__home__icon">
+            <img src="{% static 'assets/images/home-icon.svg' %}" alt="Logo Icon" class="home-icon">
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/home/navbar.js' %}" type="module"></script>
+</html>

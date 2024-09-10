@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/images/print.svg' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+    <title>Badge Printer</title>
+  </head>
+  <body class="login__body">
+    <div class="container__login">
+      <img src="{% static 'assets/images/thin_line.png' %}" alt="Supergraphic" class="container__login__line" />
+      <img class="container__login__logo" src="{% static 'assets/images/logo_bosch.png' %}" alt="Bosch" />
+      <form method="post" action="{% url 'authentication:validate_token' %}">
+        {% csrf_token %}
+        <div class="container__input">
+          <label for="token">Insira o token que recebeu em seu e-mail:</label>
+          <input class="no-arrows" id="token" name="token" placeholder="Seu token" type="number" />
+          {% if form.token.errors %}
+            {% for error in form.token.errors %}
+                <p class="form_error">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+          <button type="submit">Confirmar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="{% static 'js/login/generic_functions.js' %}"></script>
+</html>

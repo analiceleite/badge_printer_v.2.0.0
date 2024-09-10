@@ -1,0 +1,221 @@
+@use "../../config/variables.scss" as *;
+@import "../../config/mixins.scss";
+
+.nav__bar {
+    @include flexCenter(row, none);
+    width: 100vw;
+    overflow-x: hidden;
+
+    .logo__bp {
+        @include flexCenter(row, center);
+        width: 10vw;
+        cursor: pointer;
+    }
+
+    .menu__items {
+        @include flexCenter(row, center);
+        width: 79vw;
+        height: 8vh;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 2vh;
+            color: $light-gray;
+
+            a {
+                cursor: pointer;
+                text-decoration: none;
+                color: $light-gray;
+                font-size: 15px;
+
+
+                display: inline-block;
+                transition: transform 0.2s ease;
+
+                &:hover {
+                    color: $dark-gray;
+                    transform: scale(1.1);
+                }
+
+
+            }
+        }
+    }
+}
+
+.select__language__position {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    padding-top: 20px;
+    width: 200px;
+
+}
+
+.select__language__container {
+    width: 100%;
+
+    .select__language {
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .select__language__trigger {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+
+        .select__language__label {
+            display: flex;
+            width: 170px;
+            justify-content: space-between;
+            align-items: center;
+            color: #3b3b3b;
+            background: #ffffff;
+            cursor: pointer;
+            overflow: visible;
+
+            .arrow {
+                @include flexCenter(row, center);
+                width: 50px;
+                background-color: $blue;
+
+                img {
+                    width: 26px;
+                }
+            }
+
+            .open .arrow::before {
+                left: -1px;
+                transform: rotate(45deg);
+            }
+
+            .open .arrow::after {
+                left: 5px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        @include flexCenter(column, center);
+
+        .options__language {
+            margin-top: 8px;
+            display: block;
+            border: 1px solid $border-color;
+            background: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 2;
+            width: 190px;
+
+            .option__language {
+                position: relative;
+                display: block;
+                padding: 5px 20px 5px 20px;
+                font-size: 16px;
+                font-weight: 300;
+                color: #000000;
+                cursor: pointer;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #E5E5E5;
+                }
+            }
+
+            .option__language.selected {
+                color: #000000;
+                background-color: #E5E5E5;
+            }
+        }
+    }
+
+    .select__language__trigger.open .options__language {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+}
+
+
+@media (min-width: 1401px) and (max-width: 1980px) {
+
+    .select__language__container .select__language__label {
+        width: 8vw;
+    }
+}
+
+@media (min-width: 1401px) and (max-width: 1680px) {
+    .select__language__container .select__language__label {
+        width: 9vw;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+    .nav__bar .logo__bosch {
+        width: 15vw;
+    }
+
+    .select__language__position {
+        top: 0.8%;
+    }
+
+    .select__language__container .select__language__label {
+        width: 11vw;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .nav__bar .logo__bosch {
+        width: 18vw;
+    }
+
+    .nav__bar .menu__items {
+        width: 70vw;
+    }
+
+    .select__language__position {
+        top: 0.8%;
+    }
+
+    .select__language__container .select__language__label {
+        width: 12vw;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav__bar .logo__bosch {
+        width: 21vw;
+    }
+
+    .nav__bar .menu__items {
+        width: 60vw;
+    }
+
+    .select__language__container {
+        display: none;
+    }
+
+}
+
+@media(min-width: 320px) and (max-width: 768px) {
+    .nav__bar .logo__bosch {
+        display: none;
+    }
+
+    .nav__bar .menu__items {
+        width: 100vw;
+    }
+
+    .select__language__container {
+        display: none;
+    }
+
+}

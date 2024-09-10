@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/images/print.svg' %}" type="image/x-icon">
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}">
+  </head>
+  <body>
+    <div class="main__container__error">
+      {% include '../components/navbar.html' %}
+      <div class="container">
+        <div class="container__text">
+          <h1 class="container__text__error">Oops!</h1>
+          <h2 class="container__text__subtitle">Algo deu errado, tente novamente.</h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

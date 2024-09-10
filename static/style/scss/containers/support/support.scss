@@ -1,0 +1,170 @@
+@use "../../config/variables" as *;
+@import "../../config/mixins";
+
+//* Introdução
+
+.container__support,
+.container__contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px; 
+  box-sizing: border-box;
+
+  &__about {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 30px 0;
+
+    img {
+      width: 50%; 
+      max-width: 100%; 
+      margin-left: 20px; 
+    }
+
+    .text-content {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; 
+
+      .title {
+        text-align: left; 
+        margin-bottom: 10px;
+        font-size: 1.5rem; 
+      }
+
+      p {
+        margin-bottom: 10px;
+        line-height: 1.5; 
+        font-size: 1rem; 
+
+      }
+    }
+  }
+
+  &__introduction {
+    width: 100%;
+    margin: 20px 0; 
+    padding: 20px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box;
+
+    h2 {
+      font-size: 2rem; 
+      margin-bottom: 20px; 
+    }
+
+    p {
+      margin-bottom: 10px;
+      line-height: 1.5; 
+      font-size: 1rem; 
+    }
+
+    .format-guide {
+      margin-bottom: 20px;
+    }
+
+    .format-guide h3 {
+      font-size: 1.5rem; 
+      margin-bottom: 10px; 
+    }
+
+    .format-guide p {
+      margin-bottom: 10px;
+      line-height: 1.5; 
+      font-size: 1rem; 
+    }
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+
+  }
+}
+
+.container__section {
+  width: 100%;
+}
+
+//* Perguntas Frequentes
+.faq-container {
+  margin: 30px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-button {
+  background-color: $blue;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $light-blue;
+  }
+}
+
+.faq-content {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-top: none;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.faq-content p {
+  margin: 0;
+}
+
+//* Fale Conosco
+.container__contact {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  .container__input {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+
+    label {
+      margin-bottom: 5px;
+      font-size: 1rem; 
+    }
+
+    input {
+      @include inputStyle;
+      width: 100%;
+      outline: none;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      @include buttonStyle;
+      margin-top: 10px;
+    }
+  }
+}

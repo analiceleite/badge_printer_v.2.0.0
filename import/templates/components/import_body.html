@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+  </head>
+  <body>
+    <!-- Mensagens de erro ou sucesso -->
+    <div class="message" id="statusMessage">
+      <p class="message__text"></p>
+    </div>
+
+    <form id="importForm" method="POST" action="{% url 'import:import_files' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="container__import">
+        <div class="container__import__input" title="Selecionar arquivo">
+          <input accept=".xlsx" id="spreadsheet" name="spreadsheet" type="file" required />
+          <label for="spreadsheet">Colaboradores (XLSX)</label>
+        </div>
+        <div class="container__import__input" title="Selecionar arquivo">
+          <input accept=".zip" id="picture" name="picture" type="file" required />
+          <label for="picture">Imagens (ZIP)</label>
+        </div>
+        <button class="upload__button" id="uploadButton" type="submit" title="Enviar">Enviar</button>
+      </div>
+    </form>
+
+    <script type="module" src="{% static 'js/import/import.js' %}"></script>
+    <script src="{% static 'js/utils/verifyLocalStorage.js' %}" type="module"></script>
+    <script type="module" src="{% static 'js/import/importForm.js' %}"></script>
+  </body>
+</html>

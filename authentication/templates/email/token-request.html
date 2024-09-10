@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject }}</title>
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, sans-serif; width: 200px;">
+    <center>
+        <table cellpadding="0" cellspacing="0"
+            style="margin: 20px auto; background-color: #ffffff; border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+            <thead>
+                <tr>
+                    <th style="padding-top: 35px; padding-bottom: 35px; text-align: center; font-size: 30px;">
+                        <p style="margin: 5px 0;">Badge<span style="color: #56b0ff;">Printer</span></p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td
+                        style="text-align: center; font-family: Arial, sans-serif; background-color: #006ead; color: #fff; font-size: 24px; font-weight: bold; padding:15px;">
+                        Você acabou de receber o e-mail de redefinição de senha!
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 60px 40px; font-family: Arial, sans-serif; font-size: 14px;">
+                        <table width="520" cellspacing="0" cellpadding="0"
+                            style="width: 100%; font-family: Arial, sans-serif;">
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="font-size: 16px; line-height: 1.5; text-align: center; padding: 15px; background-color: #f2f2f2; border-radius: 5px;">
+                                        <strong style="font-size: 20px; color: #2E3033;">Código de Redefinição de
+                                            Senha</strong><br>
+                                        <span
+                                            style="display: block; font-size: 24px; color: #56b0ff; padding-top: 10px;">{{ random_token }}</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>

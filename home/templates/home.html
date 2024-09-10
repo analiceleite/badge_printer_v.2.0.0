@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/images/print.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}">
+    <title>Badge Printer</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            {% include 'components/navbar.html' %}
+            {% include './components/body.html' %}
+        </div>
+        {% include 'components/footer.html' %}
+    </div>
+</body>
+</html>

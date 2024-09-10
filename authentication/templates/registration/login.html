@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'assets/images/print.svg' %}" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+    <title>Badge Printer</title>
+  </head>
+  <body class="login__body">
+    <div class="container__login">
+      <img class="container__login__line" src="{% static 'assets/images/thin_line.png' %}" alt="Supergraphic" />
+      <img class="container__login__logo" src="{% static 'assets/images/logo.svg' %}" alt="Logo" />
+      <h1 class="container__login__title">Badge Printer</h1>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="container__input">
+          <label for="edv">ID:</label>
+          <input class="no-arrows" id="edv" name="username" placeholder="ID" type="number" autocomplete="EDV"/>
+          <label for="password">Senha:</label>
+          <div class="password-container">
+            <input id="password" name="password" placeholder="Senha" type="password"/>
+            <span class="toggle-password" id="toggle-password" onclick="togglePasswordVisibility(this)"><img id="icon" src="{% static 'assets/images/close_eye.png' %}" alt="Alterar exibição de senha" /></span>
+          </div>
+
+          {% if form.errors %}
+          <p class="form_error"> Credenciais incorretas </p>
+          {% endif %}
+
+          <a href="{% url 'authentication:request_email' %}">Esqueceu sua senha?</a>
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="{% static 'js/login/generic_functions.js' %}"></script>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style/css/main.css' %}" />
+    <!-- Adicione seu JavaScript -->
+  </head>
+  <body>
+    <div class="container__support">
+      <div class="container__support__about">
+        <img src="{% static 'assets/images/generative_ai.png' %}" alt="Generative AI" />
+        <div class="text-content">
+          <h1 class="title">Solução de Crachás Automatizada da Bosch</h1>
+          <p>O software Badge Printer foi projetado e desenvolvido para simplificar e agilizar a criação de crachás na Bosch, eliminando tarefas manuais e repetitivas relacionadas à produção de crachás, tornando o processo mais eficiente e menos suscetível a erros.</p>
+        </div>
+      </div>
+
+      <div class="container__support__introduction">
+        <h1 class="title">Guia para uma Foto Profissional de Crachá</h1>
+        <p>
+          <strong>1. Fundo neutro:</strong> O fundo da foto deve ser de uma cor sólida e neutra, como branco ou cinza claro, sem padrões ou objetos que possam distrair.
+        </p>
+        <p>
+          <strong>2. Iluminação uniforme:</strong> A iluminação deve ser uniforme e bem distribuída, evitando sombras no rosto do indivíduo.
+        </p>
+        <strong>3. Posição Frontal:</strong> A pessoa deve estar posicionada de frente para a câmera, com a cabeça e os ombros retos, sem inclinar a cabeça para os lados.<p>
+          <strong>4. Foco e Nitidez:</strong> A foto deve ser bem focada e nítida, com todos os detalhes do rosto claramente visíveis. Evite fotos borradas ou borradas.
+        </p>
+        <p>
+          <strong>5. Cabelo e Rosto Visíveis:</strong> O rosto e os cabelos do indivíduo devem estar completamente visíveis, sem obstruções ou acessórios que possam cobrir partes do rosto.
+        </p>
+      </div>
+
+      <!-- Guia do Modelo de Planilha Ideal -->
+      <div class="container__support__introduction">
+        <h2 class="title">Guia do Modelo de Planilha Ideal</h2>
+        <p>Para fazer o upload de arquivos para o sistema, utilize os seguintes formatos:</p>
+        <div class="format-guide">
+          <h3>Planilha</h3>
+          <p>A planilha deve estar no formato XLSX com as seguintes colunas:</p>
+          <ul>
+            <li>
+              <strong>EDV:</strong> Número de Identificação do Funcionário (ID)
+            </li>
+            <li>
+              <strong>Localidade:</strong> Localização
+            </li>
+            <li>
+              <strong>Nome Completo:</strong> Nome Completo
+            </li>
+          </ul>
+        </div>
+        <div class="format-guide">
+          <h3>Fotos</h3>
+          <p>As fotos devem ser enviadas em formato ZIP se forem enviadas em massa. Para registros individuais, você pode usar o formulário de registro fornecido.</p>
+        </div>
+      </div>
+
+
+      <!-- Perguntas Frequentes -->
+      <div class="container__section">
+        <section id="askedQuestions">
+          <h1 class="title">Perguntas Frequentes</h1>
+          <div class="faq-container">
+            <button class="faq-button" data-target="faq1">Como posso acessar o sistema?</button>
+            <div id="faq1" class="faq-content">
+              <p>Você pode acessar o sistema através de um navegador web usando suas credenciais de login fornecidas pela administração.</p>
+            </div>
+
+            <button class="faq-button" data-target="faq2">O sistema é seguro para armazenar dados confidenciais?</button>
+            <div id="faq2" class="faq-content">
+              <p>Sim, implementamos medidas de segurança avançadas para proteger dados pessoais e confidenciais contra acessos não autorizados.</p>
+            </div>
+
+            <button class="faq-button" data-target="faq4">O Badge Printer oferece suporte técnico?</button>
+            <div id="faq4" class="faq-content">
+              <p>Sim, oferecemos suporte técnico dedicado para ajudá-lo com quaisquer problemas ou dúvidas relacionadas ao sistema Badge Printer.</p>
+            </div>
+
+            <button class="faq-button" data-target="faq5">Como posso redefinir minha senha?</button>
+            <div id="faq5" class="faq-content">
+              <p>Para redefinir sua senha, clique no link “Esqueceu sua senha?” na página de login. Você receberá um e-mail com instruções para criar uma nova senha.</p>
+            </div>
+
+            <button class="faq-button" data-target="faq6">O que devo fazer se encontrar um bug no sistema?</button>
+            <div id="faq6" class="faq-content">
+              <p>Se você encontrar um bug, por favor, entre em contato com nossa equipe de suporte técnico e forneça uma descrição detalhada do problema. Isso nos ajudará a resolver a questão o mais rápido possível.</p>
+            </div>
+
+            <button class="faq-button" data-target="faq7">Há alguma limitação para o número de usuários no sistema?</button>
+            <div id="faq7" class="faq-content">
+              <p>Não há um limite fixo para o número de usuários no sistema. No entanto, se você espera um grande número de usuários, entre em contato conosco para garantir que sua infraestrutura esteja adequadamente dimensionada para suportar a carga.</p>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Fale Conosco -->
+    <section id="contactUs">
+      <div class="container__contact">
+        <h1 class="title">Fale Conosco</h1>
+        <div class="container__input">
+          <label for="name">Nome:</label>
+          <input type="text" placeholder="Seu nome" id="name" required autocomplete="name"/>
+          <label for="email">E-mail:</label>
+          <input type="text" placeholder="Seu e-mail"  id="email" autocomplete="email" required/>
+          <label for="message">Mensagem:</label>
+          <input type="text" placeholder="Sua mensagem" id="message" required/>
+          <button type="submit">Enviar</button>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('.faq-button')
+    
+      buttons.forEach((button) => {
+        button.addEventListener('click', function () {
+          const targetId = this.getAttribute('data-target')
+          const targetContent = document.getElementById(targetId)
+    
+          // Fechar todas as outras respostas
+          document.querySelectorAll('.faq-content').forEach((content) => {
+            if (content !== targetContent) {
+              content.style.display = 'none'
+            }
+          })
+    
+          // Alternar a exibição da resposta clicada
+          if (targetContent.style.display === 'block') {
+            targetContent.style.display = 'none'
+          } else {
+            targetContent.style.display = 'block'
+          }
+        })
+      })
+    })
+  </script>
+</html>

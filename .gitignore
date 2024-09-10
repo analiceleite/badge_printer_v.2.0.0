@@ -1,0 +1,8 @@
+venv/
+main.css
+main.css.map
+node_modules/
+__pycache__
+.env
+db.sqlite3
+media/

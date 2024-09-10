@@ -1,0 +1,33 @@
+@use "../../config/variables" as *;
+@import "../../config/mixins";
+
+.container__register {
+  margin-top: 8vh;
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: relative;
+    margin: 0 auto;
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input,
+    select {
+      @include inputStyle;
+      width: 100%;
+      outline: none;
+
+      &.custom-select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: #fff url('/path/to/your/icon.svg') no-repeat right center;
+        background-size: 20px;
+      }
+    }
+  }
+}
